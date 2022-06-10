@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7da7190f-34f8-4211-9297-ef692957ebe4": {
+      "ProjectGuid": "7da7190f-34f8-4211-9297-ef692957ebe4",
+      "DisplayName": "ScheduleWebSite",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Прочие файлы",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}

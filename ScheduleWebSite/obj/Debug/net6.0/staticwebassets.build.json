@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "7LWrYO3YomYjubuhigWCOvTMPQhYQOoLpFXFFp++ABs=",
+  "Source": "ScheduleWebSite",
+  "BasePath": "_content/ScheduleWebSite",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
