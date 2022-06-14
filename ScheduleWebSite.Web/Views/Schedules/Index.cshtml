@@ -3,9 +3,12 @@
 <div class="schedules">
     <h1 class="schedules__title">Розклади</h1>
     <div class="schedules__list">
-        @foreach (Schedule schedule in Model.Schedules ?? new List<Schedule>()) {
+        @{
+            List<Schedule> Schedules = Model.Schedules?.OrderBy(s => s.TimeOfCreation).ToList() ?? new List<Schedule>();
+        }
+        @foreach (Schedule schedule in Schedules) {
             <a data-id="@schedule.Id" href="@Url.Action("Item", "Schedules", new { Id = @schedule.Id })" class="schedules__item schedule">
-                <div class="schedule__title">@schedule.Name</div>
+                <div class="schedule__title">@schedule.Title</div>
                 <div class="schedule__id">#@schedule.Id</div>
                 <ion-icon class="schedule__delete" name="trash-outline"></ion-icon>
             </a>

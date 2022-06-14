@@ -8,8 +8,9 @@ namespace ScheduleWebSite.Application.Factories
         {
             return new Schedule() {
                 Id = Guid.NewGuid(),
-                Name = "Новий розклад",
-                User = user
+                Title = "Новий розклад",
+                User = user,
+                TimeOfCreation = DateTime.Now,
             };
         }
     }

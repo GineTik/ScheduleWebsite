@@ -64,7 +64,7 @@ namespace ScheduleWebSite.Web.Controllers
         public void ChangeTitle(Guid id, string title)
         {
             Schedule schedule = _db.Schedules.FirstOrDefault(schedule => schedule.Id == id);
-            schedule.Name = title;
+            schedule.Title = title;
             _db.SaveChanges();
         }
 

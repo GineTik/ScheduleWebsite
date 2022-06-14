@@ -1,6 +1,6 @@
 ﻿@model ScheduleWebSite.Domain.Models.Schedule
 
-<div class="title-input" contenteditable>@Model.Name</div>
+<div class="title-input" contenteditable>@Model.Title</div>
 
 
 
@@ -17,7 +17,7 @@
             }
         }).focusout(changeTitle);
 
-        var title = "@Model.Name";
+        var title = "@Model.Title";
         function changeTitle() {
             var newTitle = $(".title-input").text();
 
