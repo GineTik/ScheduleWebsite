@@ -1,11 +1,54 @@
 {
   "Version": 1,
-  "Hash": "7LWrYO3YomYjubuhigWCOvTMPQhYQOoLpFXFFp++ABs=",
+  "Hash": "yNdpRtFO992eka5QMIPSlaSM1p9nz2OtSe2JWcOzjBM=",
   "Source": "ScheduleWebSite",
   "BasePath": "_content/ScheduleWebSite",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "ScheduleWebSite\\wwwroot",
+      "Source": "ScheduleWebSite",
+      "ContentRoot": "D:\\Програмування\\vs2022 repos\\ScheduleWebSite\\ScheduleWebSite\\wwwroot\\",
+      "BasePath": "_content/ScheduleWebSite",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Програмування\\vs2022 repos\\ScheduleWebSite\\ScheduleWebSite\\wwwroot\\styles\\account.css",
+      "SourceId": "ScheduleWebSite",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Програмування\\vs2022 repos\\ScheduleWebSite\\ScheduleWebSite\\wwwroot\\",
+      "BasePath": "_content/ScheduleWebSite",
+      "RelativePath": "styles/account.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\styles\\account.css"
+    },
+    {
+      "Identity": "D:\\Програмування\\vs2022 repos\\ScheduleWebSite\\ScheduleWebSite\\wwwroot\\styles\\style.css",
+      "SourceId": "ScheduleWebSite",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Програмування\\vs2022 repos\\ScheduleWebSite\\ScheduleWebSite\\wwwroot\\",
+      "BasePath": "_content/ScheduleWebSite",
+      "RelativePath": "styles/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\styles\\style.css"
+    }
+  ]
 }

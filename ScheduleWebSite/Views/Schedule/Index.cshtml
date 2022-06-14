@@ -1,0 +1,31 @@
+﻿@model ScheduleWebSite.Models.User
+@using ScheduleWebSite.Models
+
+<div class="schedules">
+    <h1 class="schedules__title">Розклад</h1>
+    <div class="schedules__list">
+        @foreach (Schedule schedule in Model.Schedules ?? new List<Schedule>()) {
+            <div class="schedules__item schedule">
+                <div class="schedule__title">@schedule.Name</div>
+                <div class="schedule__lessons-count">@schedule.Lessons.Count</div>
+                <div class="schedule__comments-count">@schedule.Comments.Count</div>
+            </div>
+        }
+        <div id="add-schedule" class="schedules__item add-schedule">
+            <ion-icon name="add-outline"></ion-icon>
+            <span>додати новий розклад</span>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $("#add-schedule").click(() => {
+            $.ajax({
+                type: "POST",
+                url: @Url.Action("AddSchedule"),
+                 
+            });
+        });
+    </script>
+}

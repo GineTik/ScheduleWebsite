@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta />
+    <title>@ViewBag.Title</title>
+
+    <!-- styles -->
+    <link href="~/Styles/style.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+</head>
+<body class="page">
+
+    <header class="page__header header">
+        <div class="header__logo logo">Schedule</div>
+        <div class="header__navbar navbar">
+            <a class="navbar__link" asp-action="Index" asp-controller="Home">Головна</a>
+            @if (ViewBag.User != null)
+            {
+                <a class="navbar__link" asp-action="Index" asp-controller="Schedules">Розклади</a>
+            }
+        </div>
+        <div class="header__account account">
+            @if (ViewBag.User == null)
+            {
+                <div class="account__auth">
+                    <a class="account__sign-in button--outline" asp-action="SignIn" asp-controller="Authorization">Увійти</a>
+                    <a class="account__sign-up button--purple" asp-action="SignUp" asp-controller="Authorization">Зареєструватись</a>
+                </div>
+            }
+            else // user is logined
+            {
+                <a class="account__profile button--purple" asp-action="Account" asp-controller="Home">@ViewBag.User.Name</a>
+                <a class="account__logout button--outline" asp-action="Logout" asp-controller="Authorization">Вийти</a>
+            }
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- jquery validate -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
+    <!-- ion-icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

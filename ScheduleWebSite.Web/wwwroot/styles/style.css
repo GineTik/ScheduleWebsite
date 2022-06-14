@@ -1,0 +1,80 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    display: flex;
+    padding: 15px;
+}
+
+.header__logo {
+    margin-right: 20px;
+}
+
+.header__account {
+    margin-left: auto;
+}
+
+
+.account__auth {
+
+}
+
+.account__sign-up {
+    display: inline-block;
+    border-radius: 50px;
+    background: #e093f2;
+    color: #fff;
+    text-decoration: none;
+    padding: 7px 20px;
+}
+
+
+[class*="button"] {
+    display: inline-block;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 7px 20px;
+    transition: .2s;
+}
+
+[class*="button"]:hover {
+    filter: brightness(95%);
+}
+
+.button--outline {
+    box-shadow: inset 0px 0px 0px 2px #e8e8e8;
+    background: #fff;
+    color: #656565;
+}
+
+.button--purple {
+    background: #cb36ee;
+    color: #fff;
+}
+.button--purple:hover {
+    filter: brightness(85%);
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: #656565;
+    margin-left: 20px;
+    position: relative;
+    font-weight: 500;
+    transition: .2s;
+}
+
+.navbar__link:hover {
+    color: #cb36ee;
+}

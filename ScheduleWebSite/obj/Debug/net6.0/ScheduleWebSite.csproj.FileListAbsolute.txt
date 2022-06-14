@@ -55,3 +55,5 @@ D:\Програмування\vs2022 repos\ScheduleWebSite\ScheduleWebSite\bin\D
 D:\Програмування\vs2022 repos\ScheduleWebSite\ScheduleWebSite\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Програмування\vs2022 repos\ScheduleWebSite\ScheduleWebSite\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\Програмування\vs2022 repos\ScheduleWebSite\ScheduleWebSite\obj\Debug\net6.0\ScheduleWebSite.csproj.CopyComplete
+D:\Програмування\vs2022 repos\ScheduleWebSite\ScheduleWebSite\bin\Debug\net6.0\ScheduleWebSite.staticwebassets.runtime.json
+D:\Програмування\vs2022 repos\ScheduleWebSite\ScheduleWebSite\obj\Debug\net6.0\ScheduleWebSite.csproj.AssemblyReference.cache

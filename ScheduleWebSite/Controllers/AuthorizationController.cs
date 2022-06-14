@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ScheduleWebSite.Data;
 using ScheduleWebSite.Models;
@@ -25,7 +26,11 @@ namespace ScheduleWebSite.Controllers
 
         public IActionResult SignIn()
         {
-            return View(new SignInModel());
+            if (User?.Identity?.IsAuthenticated == false)
+            {
+                return View(new SignInModel());
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -48,7 +53,11 @@ namespace ScheduleWebSite.Controllers
 
         public IActionResult SignUp()
         {
-            return View(new SignUpModel());
+            if (User?.Identity?.IsAuthenticated == false)
+            {
+                return View(new SignUpModel());
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -62,7 +71,7 @@ namespace ScheduleWebSite.Controllers
                 {
                     user = new User 
                     { 
-                        Name = "New User :^)",
+                        Name = "New User :)",
                         Login = model.Login, 
                         PasswordHash = model.Password 
                     };

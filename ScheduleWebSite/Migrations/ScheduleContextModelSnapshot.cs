@@ -46,7 +46,7 @@ namespace ScheduleWebSite.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Models.Lesson", b =>
@@ -68,7 +68,7 @@ namespace ScheduleWebSite.Migrations
 
                     b.HasIndex("ScheduleId");
 
-                    b.ToTable("Lessons");
+                    b.ToTable("Lessons", (string)null);
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Models.Schedule", b =>
@@ -90,7 +90,7 @@ namespace ScheduleWebSite.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Schedules");
+                    b.ToTable("Schedules", (string)null);
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Models.User", b =>
@@ -115,7 +115,7 @@ namespace ScheduleWebSite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Models.Comment", b =>

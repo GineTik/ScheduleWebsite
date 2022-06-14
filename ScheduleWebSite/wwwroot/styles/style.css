@@ -1,0 +1,103 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    display: flex;
+    padding: 15px;
+}
+
+.header__logo {
+    margin-right: 20px;
+}
+
+.header__account {
+    margin-left: auto;
+}
+
+
+.account__auth {
+
+}
+
+.account__sign-up {
+    display: inline-block;
+    border-radius: 50px;
+    background: #e093f2;
+    color: #fff;
+    text-decoration: none;
+    padding: 7px 20px;
+}
+
+
+[class*="button"] {
+    display: inline-block;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 7px 20px;
+    transition: .2s;
+}
+
+[class*="button"]:hover {
+    filter: brightness(95%);
+}
+
+.button--outline {
+    box-shadow: inset 0px 0px 0px 2px #e8e8e8;
+    background: #fff;
+    color: #656565;
+}
+
+.button--purple {
+    background: #cb36ee;
+}
+.button--purple:hover {
+    filter: brightness(85%);
+}
+
+
+
+.schedules {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.schedules__title {
+    margin-bottom: 20px;
+}
+
+.schedules__item {
+    width: 100%;
+    border: 3px solid #e093f2;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background: #fff;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.add-schedule {
+    border: 3px dashed #dedede;
+    color: #656565;
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.add-schedule ion-icon {
+    margin-right: 7px;
+    font-size: 30px;
+}
+.add-schedule span {
+    margin-top: -6px;
+}
+
+.schedules__item:hover {
+    filter: brightness(98%);
+}

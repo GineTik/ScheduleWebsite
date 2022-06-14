@@ -1,0 +1,59 @@
+﻿@model ScheduleWebSite.Domain.Models.User
+
+<div class="schedules">
+    <h1 class="schedules__title">Розклади</h1>
+    <div class="schedules__list">
+        @foreach (Schedule schedule in Model.Schedules ?? new List<Schedule>()) {
+            <a data-id="@schedule.Id" href="@Url.Action("Item", "Schedules", new { Id = @schedule.Id })" class="schedules__item schedule">
+                <div class="schedule__title">@schedule.Name</div>
+                <div class="schedule__id">#@schedule.Id</div>
+                <ion-icon class="schedule__delete" name="trash-outline"></ion-icon>
+            </a>
+        }
+        <div id="add-schedule" class="schedules__item add-schedule">
+            <ion-icon name="add-outline"></ion-icon>
+            <span>додати новий розклад</span>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link href="~/styles/schedule.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script>
+        $("#add-schedule").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddSchedule", "Schedules")",
+                success: function(scheduleId) {
+                    if (scheduleId == null) {
+                        console.log("розклад не додався");
+                    }
+                    window.location.href = `@Url.Action("Item", "Schedules")/${scheduleId}`;
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+
+        $(".schedule__delete").click(function(e) {
+            e.preventDefault();
+
+            var $schedule_link = $(this).parent();
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("DeleteSchedule", "Schedules")",
+                data: { id: $schedule_link.attr("data-id") },
+                success: function() {
+                    $schedule_link.remove();
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+}

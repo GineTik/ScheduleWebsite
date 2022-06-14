@@ -10,7 +10,37 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Прочие файлы",
       "ColorIndex": -1
+    },
+    "88e07c7d-373a-43b4-aee6-151bd30331dd": {
+      "ProjectGuid": "88e07c7d-373a-43b4-aee6-151bd30331dd",
+      "DisplayName": "ScheduleWebSite.Domen",
+      "ColorIndex": 1
+    },
+    "d7338360-c168-4a45-8b17-10ed2d531fec": {
+      "ProjectGuid": "d7338360-c168-4a45-8b17-10ed2d531fec",
+      "DisplayName": "ScheduleWebSite",
+      "ColorIndex": 2
+    },
+    "16c91bbe-bf95-442a-82db-4cc17af09531": {
+      "ProjectGuid": "16c91bbe-bf95-442a-82db-4cc17af09531",
+      "DisplayName": "ScheduleWebSite.Domain",
+      "ColorIndex": 3
+    },
+    "5f047161-768a-4064-92c3-1d2623aedb18": {
+      "ProjectGuid": "5f047161-768a-4064-92c3-1d2623aedb18",
+      "DisplayName": "ScheduleWebSite.Web",
+      "ColorIndex": 4
+    },
+    "51fd9a66-7330-4bdf-8217-5f9ec59c92e8": {
+      "ProjectGuid": "51fd9a66-7330-4bdf-8217-5f9ec59c92e8",
+      "DisplayName": "ScheduleWebSite.Data",
+      "ColorIndex": 5
+    },
+    "b4e7e166-8025-456f-9c04-05e6ffd25d42": {
+      "ProjectGuid": "b4e7e166-8025-456f-9c04-05e6ffd25d42",
+      "DisplayName": "ScheduleWebSite.Application",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 7
 }

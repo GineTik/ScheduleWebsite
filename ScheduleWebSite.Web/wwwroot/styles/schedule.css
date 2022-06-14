@@ -1,0 +1,79 @@
+﻿.schedules {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.schedules__title {
+    margin-bottom: 20px;
+}
+
+.schedule__id {
+    color: #bdbdbd;
+    font-size: .9rem;
+    margin-left: 10px;
+}
+
+.schedule__delete {
+    margin-left: auto;
+    transition: .2s;
+    padding: 2px 5px;
+}
+.schedule__delete:hover {
+    color: #ff0000;
+}
+
+.schedules__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: #5b5b5b;
+    border: 2px solid #656565;
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.add-schedule {
+    border: 3px dashed #dedede;
+    color: #656565;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+    .add-schedule ion-icon {
+        margin-right: 7px;
+        font-size: 1.9rem;
+    }
+
+    .add-schedule span {
+        margin-top: -5px;
+    }
+
+.schedules__item:hover {
+    filter: brightness(95%);
+}
+
+
+
+.title-input {
+    display: inline-block;
+    border: 0;
+    margin-left: 25px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #212121;
+    padding: 0 20px;
+}
+
+.title-input:focus {
+    outline: 2px solid #cb36ee;
+    border-radius: 50px;
+}

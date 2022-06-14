@@ -1,0 +1,38 @@
+﻿@model ScheduleWebSite.Domain.Models.Schedule
+
+<div class="title-input" contenteditable>@Model.Name</div>
+
+
+
+@section Styles {
+    <link href="~/styles/schedule.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script>
+        $(".title-input").keypress(function (e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+                $(this).blur();
+            }
+        }).focusout(changeTitle);
+
+        var title = "@Model.Name";
+        function changeTitle() {
+            var newTitle = $(".title-input").text();
+
+            if (title == newTitle)
+                return;
+
+            title = newTitle;
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ChangeTitle", "Schedules")",
+                data: { id: "@Model.Id", title: newTitle },
+                error: (error) => {
+                    console.log(error);
+                }
+            });
+        }
+    </script> 
+}

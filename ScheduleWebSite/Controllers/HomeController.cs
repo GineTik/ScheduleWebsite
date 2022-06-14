@@ -16,17 +16,22 @@ namespace ScheduleWebSite.Controllers
 
         public IActionResult Index()
         {
+            AuthorizeUser();
             return View();
         }
 
         [Authorize]
         public IActionResult Account()
         {
+            return View(AuthorizeUser());
+        }
+
+        private User? AuthorizeUser()
+        {
             string login = HttpContext.User.FindFirst("Login")?.Value ?? "";
-
             User? user = _db.Users.FirstOrDefault(u => u.Login == login);
-
-            return View(user);
+            ViewBag.User = user;
+            return user;
         }
     }
 }
