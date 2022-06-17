@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScheduleWebSite.Data.Contexts;
 
@@ -11,9 +12,10 @@ using ScheduleWebSite.Data.Contexts;
 namespace ScheduleWebSite.Data.Migrations
 {
     [DbContext(typeof(ScheduleContext))]
-    partial class ScheduleContextModelSnapshot : ModelSnapshot
+    [Migration("20220615095525_CreateDayOfScheduleModel")]
+    partial class CreateDayOfScheduleModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +46,7 @@ namespace ScheduleWebSite.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Domain.Models.DayOfSchedule", b =>
@@ -57,14 +59,14 @@ namespace ScheduleWebSite.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ScheduleId")
+                    b.Property<Guid?>("ScheduleId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ScheduleId");
 
-                    b.ToTable("DaysOfSchedules", (string)null);
+                    b.ToTable("DaysOfSchedules");
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Domain.Models.Lesson", b =>
@@ -89,7 +91,7 @@ namespace ScheduleWebSite.Data.Migrations
 
                     b.HasIndex("ScheduleId");
 
-                    b.ToTable("Lessons", (string)null);
+                    b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Domain.Models.Schedule", b =>
@@ -112,7 +114,7 @@ namespace ScheduleWebSite.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Schedules", (string)null);
+                    b.ToTable("Schedules");
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Domain.Models.User", b =>
@@ -135,7 +137,7 @@ namespace ScheduleWebSite.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Domain.Models.Comment", b =>
@@ -155,13 +157,9 @@ namespace ScheduleWebSite.Data.Migrations
 
             modelBuilder.Entity("ScheduleWebSite.Domain.Models.DayOfSchedule", b =>
                 {
-                    b.HasOne("ScheduleWebSite.Domain.Models.Schedule", "Schedule")
+                    b.HasOne("ScheduleWebSite.Domain.Models.Schedule", null)
                         .WithMany("Days")
-                        .HasForeignKey("ScheduleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Schedule");
+                        .HasForeignKey("ScheduleId");
                 });
 
             modelBuilder.Entity("ScheduleWebSite.Domain.Models.Lesson", b =>

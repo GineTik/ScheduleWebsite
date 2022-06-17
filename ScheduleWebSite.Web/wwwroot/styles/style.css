@@ -6,6 +6,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.page {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
 header {
     display: flex;
     padding: 15px;
@@ -59,6 +65,28 @@ header {
 .button--purple:hover {
     filter: brightness(85%);
 }
+
+.button--add {
+    border: 3px dashed #dedede !important;
+    color: #656565 !important;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 8px 20px !important;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+    .button--add ion-icon {
+        margin-right: 7px;
+        font-size: 1.9rem;
+    }
+
+    .button--add span {
+        margin-top: -5px;
+        font-size: 1.1rem;
+    }
 
 
 .navbar {

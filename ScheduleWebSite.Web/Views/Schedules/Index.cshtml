@@ -13,7 +13,7 @@
                 <ion-icon class="schedule__delete" name="trash-outline"></ion-icon>
             </a>
         }
-        <div id="add-schedule" class="schedules__item add-schedule">
+        <div id="add-schedule" class="schedules__item button--add">
             <ion-icon name="add-outline"></ion-icon>
             <span>додати новий розклад</span>
         </div>
@@ -25,38 +25,28 @@
 }
 
 @section Scripts {
-    <script>
-        $("#add-schedule").click(function() {
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("AddSchedule", "Schedules")",
-                success: function(scheduleId) {
-                    if (scheduleId == null) {
-                        console.log("розклад не додався");
-                    }
-                    window.location.href = `@Url.Action("Item", "Schedules")/${scheduleId}`;
-                },
-                error: function(error) {
-                    console.log(error);
+    <script type="module">
+        import sendRequest from "/scripts/RequestSender.js";
+
+        $("#add-schedule").click(() => {
+            sendRequest({
+                url: "@Url.Action("AddSchedule", "Schedules")"
+            }).done((scheduleId) => {
+                if (scheduleId == null) {
+                    console.log("розклад не додався");
                 }
+                window.location.href = `@Url.Action("Item", "Schedules")/${scheduleId}`;
             });
         });
 
         $(".schedule__delete").click(function(e) {
             e.preventDefault();
-
             var $schedule_link = $(this).parent();
-            $.ajax({
-                type: "POST",
+
+            sendRequest({
                 url: "@Url.Action("DeleteSchedule", "Schedules")",
-                data: { id: $schedule_link.attr("data-id") },
-                success: function() {
-                    $schedule_link.remove();
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
+                data: { id: $schedule_link.attr("data-id") }
+            }).done(() => $schedule_link.remove());
         });
     </script>
 }

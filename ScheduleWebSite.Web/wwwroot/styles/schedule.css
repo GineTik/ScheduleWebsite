@@ -8,16 +8,27 @@
     margin-bottom: 20px;
 }
 
+.schedule__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .schedule__id {
     color: #bdbdbd;
     font-size: .9rem;
     margin-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .schedule__delete {
     margin-left: auto;
     transition: .2s;
     padding: 2px 5px;
+    font-size: 1.3rem;
+    min-width: 1.3rem;
 }
 .schedule__delete:hover {
     color: #ff0000;
@@ -40,23 +51,6 @@
     transition: .2s;
 }
 
-.add-schedule {
-    border: 3px dashed #dedede;
-    color: #656565;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
-
-    .add-schedule ion-icon {
-        margin-right: 7px;
-        font-size: 1.9rem;
-    }
-
-    .add-schedule span {
-        margin-top: -5px;
-    }
-
 .schedules__item:hover {
     filter: brightness(95%);
 }
@@ -66,14 +60,77 @@
 .title-input {
     display: inline-block;
     border: 0;
-    margin-left: 25px;
-    font-size: 2rem;
+    margin: 25px 22px 0 22px;
+    font-size: 1.6rem;
     font-weight: 900;
     color: #212121;
     padding: 0 20px;
+    border-radius: 22px;
+}
+
+.title-input:hover {
+    outline: 2px solid #dedede;
 }
 
 .title-input:focus {
     outline: 2px solid #cb36ee;
-    border-radius: 50px;
+}
+
+
+.schedule__days {
+    padding: 30px 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.schedule__day {
+    width: 300px;
+    min-width: 300px;
+    height: 100%;
+    margin: 10px;
+    background: #9781a0;
+        /*#582464;*/
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.day__lessons {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.schedule__day.button--add {
+    padding: 2px 20px !important;
+    background: #fff;
+    height: auto;
+    justify-content: center;
+}
+
+.day__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+    padding: 0 3px;
+}
+.day__title {
+    color: #fff;
+    border-radius: 3px;
+}
+.day__title:hover {
+    outline: 2px solid #bdbdbd;
+}
+.day__title:focus {
+    outline: 2px solid #fff;
+}
+
+.day__delete {
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: .2s;
+}
+.day__delete:hover {
+    transform: scale(1.1);
 }

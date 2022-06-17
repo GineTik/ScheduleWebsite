@@ -1,6 +1,41 @@
 ﻿@model ScheduleWebSite.Domain.Models.Schedule
 
-<div class="title-input" contenteditable>@Model.Title</div>
+
+<div class="schedule">
+    <div class="title-input" contenteditable data-maxlength="50">@Model.Title</div>
+
+    <div class="schedule__days">
+        @foreach (DayOfSchedule day in Model.Days ?? new List<DayOfSchedule>()) 
+        {
+            <div class="schedule__day day" data-id="@day.Id">
+                <div class="day__header">
+                    <h3 class="day__title" contenteditable data-maxlength="50">@day.Name</h3>
+                    <ion-icon class="day__delete" name="trash-outline"></ion-icon>
+                </div>
+                <div class="day__lessons">
+                    @if (day.Lessons == null) 
+                    {
+                        @foreach(Lesson lesson in day.Lessons)
+                        {
+                            <div class="day__lesson lesson">
+                                @lesson.Name
+                            </div>
+                        }
+                    }
+                    else 
+                    {
+                        @:уроків немає
+                    }
+                </div>
+            </div>
+        }
+        <div class="schedule__day button--add">
+            <ion-icon name="add-outline"></ion-icon>
+            <span>додати новий день</span>
+        </div>
+    </div>
+</div>
+
 
 
 
@@ -9,30 +44,67 @@
 }
 
 @section Scripts {
-    <script>
-        $(".title-input").keypress(function (e) {
-            if (e.keyCode == 13) {
-                e.preventDefault();
-                $(this).blur();
-            }
-        }).focusout(changeTitle);
+    <script type="module">
+        import sendRequest from "/scripts/RequestSender.js";
+        import setTitleInput from "/scripts/TitleInput.js";
 
-        var title = "@Model.Title";
-        function changeTitle() {
+        var scheduleTitle = "@Model.Title";
+        setTitleInput($(".title-input"), function() {
             var newTitle = $(".title-input").text();
 
-            if (title == newTitle)
+            if (scheduleTitle == newTitle)
                 return;
 
-            title = newTitle;
-            $.ajax({
-                type: "POST",
+            scheduleTitle = newTitle;
+            sendRequest({
                 url: "@Url.Action("ChangeTitle", "Schedules")",
-                data: { id: "@Model.Id", title: newTitle },
-                error: (error) => {
-                    console.log(error);
-                }
+                data: { id: "@Model.Id", title: newTitle }
+            });
+        });
+
+
+        setTitleInput($(".day__title"), changeDayTitle);
+        function changeDayTitle() {
+            var newTitle = $(this).text();
+            var day = $(this).parent().parent();
+            sendRequest({
+                url: "@Url.Action("ChangeDayTitle", "Schedules")",
+                data: { scheduleId: "@Model.Id", id: day.attr("data-id"), title: newTitle }
             });
         }
+
+
+        $(".schedule__day.button--add").click(function() {
+            sendRequest({
+                url: "@Url.Action("AddDay", "Schedules")",
+                data: { scheduleId: "@Model.Id" }
+            }).done((day) => {
+                var dayTemplate = `
+                    <div class="schedule__day day" data-id="${day.id}">
+                        <div class="day__header">
+                            <h3 class="day__title" contenteditable data-maxlength="50">${day.name}</h3>
+                            <ion-icon class="day__delete" name="trash-outline"></ion-icon>
+                        </div>
+                        <div class="day__lessons">
+                            <div class="day__lesson lesson">
+                                уроків немає
+                            </div>
+                        </div>
+                    </div>
+                `;
+                $(this).before(dayTemplate);
+                setTitleInput($(".day__title"), changeDayTitle);
+            });
+        });
+
+        $("body").on("click", ".day__delete", function() {
+            var day = $(this).parent().parent();
+            sendRequest({
+                url: "@Url.Action("DeleteDay", "Schedules")",
+                data: { id: day.attr("data-id"), scheduleId: "@Model.Id" }
+            }).done(() => {
+                day.remove();
+            });
+        });
     </script> 
 }

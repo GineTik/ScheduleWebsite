@@ -10,6 +10,7 @@ namespace ScheduleWebSite.Data.Contexts
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<DayOfSchedule> DaysOfSchedules { get; set; }
 
         public ScheduleContext(DbContextOptions<ScheduleContext> options)
            : base(options) { }
